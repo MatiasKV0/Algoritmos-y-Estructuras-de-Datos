@@ -9,12 +9,12 @@
 #define MINIMO(x,y)(((x)>(y))?(y):(x))
 
 typedef struct sNodo {
-    void *info;
+    void* info;
     size_t tamInfo;
     struct sNodo *sig;
 } tNodo;
 
-typedef tNodo *tPila;
+typedef tNodo* tPila;
 
 void crearPila(tPila *p);
 int ponerEnPila(tPila *p, const void *d, size_t tam);
@@ -26,7 +26,7 @@ void vaciarPila(tPila *p);
 
 
 int main(){
-    tPila pila; //tNodo *pila
+    tPila pila; //tNodo* pila
     int dato = 2;
     int tope;
     char tope1;
@@ -52,7 +52,7 @@ void crearPila(tPila *p) //tNode **p
 }
 
 int ponerEnPila(tPila *p, const void *d, size_t tam){
-    tNodo *nuevo = (tNodo *)malloc(sizeof(tNodo));
+    tNodo* nuevo = (tNodo*)malloc(sizeof(tNodo));
 
     if(!nuevo){
         return SIN_MEMORIA;
@@ -75,7 +75,7 @@ int ponerEnPila(tPila *p, const void *d, size_t tam){
 }
 
 int sacarDePila(tPila *p, void *d, size_t tam){
-    tNodo *eliminar = *p;
+    tNodo* eliminar = *p;
 
     if(!*p){
         return PILA_VACIA;
@@ -114,7 +114,7 @@ int verTope(const tPila *p, void *d, size_t tam){
     return TODO_BIEN;
 }
 
-void vaciarPila(tPila *p){
+void vaciarPila(tPila* p){
     while(*p){
         tNodo *elim = *p;
         *p = elim->sig;
